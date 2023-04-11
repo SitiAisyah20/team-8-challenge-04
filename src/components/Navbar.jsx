@@ -23,19 +23,40 @@ function NavScroll() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
           </Col>
-          <Col xs={12} md={4} className="d-flex align-items-center justify-content-center">
+          <Col
+            xs={12}
+            md={4}
+            className="d-flex align-items-center justify-content-center"
+          >
             <Navbar.Collapse id="navbarScroll">
               <Form className="d-flex">
-                <Form.Control type="search" placeholder="What do you want to watch?" className="me-2 border-danger" aria-label="Search" style={{ backgroundColor: "transparent", width: "300px" }} />
+                <Form.Control
+                  type="search"
+                  placeholder="What do you want to watch?"
+                  className="me-2 border-danger"
+                  aria-label="Search"
+                  style={{ backgroundColor: "transparent", width: "300px" }}
+                />
               </Form>
             </Navbar.Collapse>
           </Col>
-          <Col xs={12} md={4} className="d-flex align-items-center justify-content-end">
+          <Col
+            xs={12}
+            md={4}
+            className="d-flex align-items-center justify-content-end"
+          >
             <Navbar.Collapse id="navbarScroll" className="justify-content-end">
-              <Button variant="outline-danger" style={{ borderRadius: "20px", width: "100px" }}>
+              <Button
+                variant="outline-danger"
+                style={{ borderRadius: "20px", width: "100px" }}
+              >
                 Login
               </Button>
-              <Button variant="danger" className="ms-2" style={{ borderRadius: "20px", width: "100px" }}>
+              <Button
+                variant="danger"
+                className="ms-2"
+                style={{ borderRadius: "20px", width: "100px" }}
+              >
                 Register
               </Button>
             </Navbar.Collapse>
