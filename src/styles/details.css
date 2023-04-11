@@ -1,9 +1,6 @@
-/* .detailsPage {
-  height: 90vh;
-  display: flex;
-  background-position: center;
-  align-items: flex-end;
-} */
+.detailsPage {
+  background-color: #222222;
+}
 
 figcaption {
   position: absolute;
@@ -27,6 +24,7 @@ figcaption {
   height: fit-content;
   background-color: #222222;
   border-radius: 10px;
+  opacity: 0.85;
 }
 
 .movieTitle {
@@ -38,9 +36,6 @@ figcaption {
 
 .movieDescription {
   padding-bottom: 1px;
-}
-
-.movieRate {
 }
 
 .moviePoster {
