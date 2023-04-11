@@ -27,6 +27,7 @@ figcaption {
   height: fit-content;
   background-color: #222222;
   border-radius: 10px;
+  opacity: 0.85;
 }
 
 .movieTitle {
