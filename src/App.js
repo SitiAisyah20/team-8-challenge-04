@@ -6,6 +6,7 @@ import Details from "./pages/Details";
 import Search from "./pages/Search";
 import SearchTwo from "./pages/SearchTwo";
 import SearchThree from "./pages/SearchThree";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/search2" element={<SearchTwo />} />
         <Route path="/search3" element={<SearchThree />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
