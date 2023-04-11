@@ -21,7 +21,6 @@ function Details() {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`);
         setDetailMovie(response.data);
         setGenre(response.data);
-        console.log(response.data);
       } catch (error) {
         alert(error);
       }
@@ -60,7 +59,9 @@ function Details() {
               <hr style={{ opacity: "0.1" }}></hr>
               <div style={{ marginBottom: "15px" }}></div>
 
-              <div className="d-flex justify-content-spacearound ">{getGenre}</div>
+              <div className="d-flex justify-content-spacearound " style={{ fontStyle: "italic" }}>
+                {getGenre}
+              </div>
 
               <div className="movieRate">
                 <h4>{"Rating: " + detailMovie.vote_average}</h4>
