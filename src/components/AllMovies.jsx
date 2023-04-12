@@ -1,44 +1,30 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/App.css";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import axios from "axios";
 
-function PopularMovie() {
-  const [popularMovies, setPopularMovies] = useState([]);
+function SearchThree() {
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=dca3f16902da77f476fae29bef18cfb2`
-      )
-      .then((response) => setPopularMovies(response.data.results))
-      .catch((error) => console.log(error));
+    getMovies();
   }, []);
 
+  const getMovies = async () => {
+    const response = await axios.request(
+      `https://api.themoviedb.org/3/discover/movie?api_key=dca3f16902da77f476fae29bef18cfb2&include_adult=false&page=1`
+    );
+    const data = response.data;
+    setMovies(data.results); // `results` from the tmdb docs
+    console.log(data);
+  };
+
   return (
-    <>
-      <div className="bg">
-        <Container className="mt-4">
-          <Row>
-            <Col sm={10}>
-              <h3 className="text-danger text-popular">
-                <b>Popular Movies</b>
-              </h3>
-            </Col>
-            <Col sm={2} className="all-movie">
-              <Button
-                variant="dark"
-                className="text-danger all-movie"
-                as={Link}
-                to={`/all-movies`}
-              >
-                See All Movie <i className="fas fa-arrow-right" />
-              </Button>
-            </Col>
-          </Row>
-          <Row className="mt-4">
-            {popularMovies.map((movie) => (
+    <div className="bg">
+      <Container style={{ paddingTop: "6rem" }}>
+        <Row>
+          {movies.length > 0 &&
+            movies.map((movie) => (
               <Col sm={12} md={6} lg={3} key={movie.id}>
                 <div
                   className="card"
@@ -57,7 +43,7 @@ function PopularMovie() {
                     className="card-content"
                     style={{ height: "100px", color: "#DADADA" }}
                   >
-                    <h4 className="card-title text-center text-white my-3">
+                    <h4 className="card-title text-center my-3">
                       <b>{movie.title}</b>
                     </h4>
                     {/* <p className="card-text">{movie.release_date}</p>
@@ -75,11 +61,10 @@ function PopularMovie() {
                 </div>
               </Col>
             ))}
-          </Row>
-        </Container>
-      </div>
-    </>
+        </Row>
+      </Container>
+    </div>
   );
 }
 
-export default PopularMovie;
+export default SearchThree;

@@ -12,7 +12,10 @@ function Footer() {
               <div className="col-sm-12 col-md-6">
                 <h6>Movie</h6>
                 <p className="text-justify">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis inventore quasi consequuntur eos, sit recusandae cumque nemo officia quod ipsam ducimus delectus nesciunt eius minima rem iure saepe. Officia, quasi?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                  inventore quasi consequuntur eos, sit recusandae cumque nemo
+                  officia quod ipsam ducimus delectus nesciunt eius minima rem
+                  iure saepe. Officia, quasi?
                 </p>
               </div>
               <div className="col-xs-6 col-md-4">
@@ -93,7 +96,9 @@ function Footer() {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
-                <p className="copyright-text">Copyright &copy; 2023 All Rights Reserved</p>
+                <p className="copyright-text">
+                  Copyright &copy; 2023 All Rights Reserved
+                </p>
               </div>
               <div className="col-md-4 col-sm-6 col-xs-12">
                 <ul className="social-icons">
