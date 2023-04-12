@@ -1,8 +1,18 @@
 import Button from "react-bootstrap/Button";
-import { Container, Row, Col, Form, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Form, Navbar, InputGroup } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 function NavScroll() {
+  const navigate = useNavigate();
+
+  const onSearch = (e) => {
+    e.preventDefault();
+    const query = e.target.elements.search.value;
+    // console.log(e.target.elements.search.value);
+    navigate("/search", { state: { query } });
+  };
+
   return (
     <Navbar
       style={{
@@ -29,14 +39,24 @@ function NavScroll() {
             className="d-flex align-items-center justify-content-center"
           >
             <Navbar.Collapse id="navbarScroll">
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="What do you want to watch?"
-                  className="me-2 border-danger"
-                  aria-label="Search"
-                  style={{ backgroundColor: "transparent", width: "300px" }}
-                />
+              <Form className="d-flex" onSubmit={onSearch}>
+                <InputGroup>
+                  <Form.Control
+                    type="search"
+                    name="search"
+                    placeholder="What do you want to watch?"
+                    className="border-danger"
+                    aria-label="Search"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "white",
+                      width: "300px",
+                    }}
+                  />
+                  <Button variant="outline-danger" type="submit">
+                    <FaSearch color="#DADADA" />
+                  </Button>
+                </InputGroup>
               </Form>
             </Navbar.Collapse>
           </Col>

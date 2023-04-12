@@ -36,7 +36,7 @@ function PopularMovie() {
                 style={{ marginBottom: "50px", borderRadius: "10px" }}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                   alt={`${movie.title} poster`}
                   style={{
                     width: "100%",
