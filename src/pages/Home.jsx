@@ -20,7 +20,7 @@ function Home() {
   return (
     <>
       <div className="bg">
-        <Carousel>
+        <Carousel controls={false}>
           {nowPlayingMovies.slice(4, 7).map((movie) => (
             <Carousel.Item key={movie.id} style={{ maxHeight: "700px" }}>
               <img className="d-block w-100" src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />

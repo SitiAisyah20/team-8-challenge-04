@@ -35,3 +35,10 @@
 .card-title {
   font-size: 25px;
 }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #222222;
+}

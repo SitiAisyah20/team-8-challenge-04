@@ -24,7 +24,7 @@ function PopularMovie() {
             </h3>
           </Col>
           <Col sm={2} className="text-right">
-            <Button variant="dark" className="text-danger all-movie" as={Link} to={`/all-movies`}>
+            <Button variant="outline-danger" className=" all-movie mt-1 rounded" style={{ borderRadius: "20px" }} as={Link} to={`/all-movies`}>
               See All Movie <i className="fas fa-arrow-right" />
             </Button>
           </Col>

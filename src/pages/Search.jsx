@@ -33,7 +33,7 @@ function SearchThree() {
       <Container>
         <Row>
           {<InputValue />}
-          {movies.length > 0 &&
+          {movies.length > 0 ? (
             movies.map((movie) => (
               <Col sm={12} md={6} lg={3} key={movie.id}>
                 <Link to={`/details/${movie.id}`} style={{ textDecoration: "none" }}>
@@ -61,7 +61,12 @@ function SearchThree() {
                   </Card>
                 </Link>
               </Col>
-            ))}
+            ))
+          ) : (
+            <h3 className="text-white mt-5">
+              <b>No result found</b>
+            </h3>
+          )}
         </Row>
       </Container>
     </div>
