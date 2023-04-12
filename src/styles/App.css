@@ -11,9 +11,14 @@
 }
 
 .text-popular {
-  font-size: 35px;
+  font-size: 32px;
 }
 
 .all-movie {
-  font-size: 18px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 16.5px;
+  background-color: transparent;
+  border-color: transparent;
 }

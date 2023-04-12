@@ -18,7 +18,9 @@ function Details() {
   React.useEffect(() => {
     async function getDetailMovie() {
       try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`);
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`
+        );
         setDetailMovie(response.data);
         setGenre(response.data);
       } catch (error) {
@@ -47,7 +49,11 @@ function Details() {
 
       <div className="detailsPage">
         <figure className="position-relative">
-          <img src={`https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`} alt="" className="img-fluid" />
+          <img
+            src={`https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`}
+            alt=""
+            className="img-fluid"
+          />
         </figure>
         <figcaption>
           <div className="banner">
@@ -59,7 +65,10 @@ function Details() {
               <hr style={{ opacity: "0.1" }}></hr>
               <div style={{ marginBottom: "15px" }}></div>
 
-              <div className="d-flex justify-content-spacearound " style={{ fontStyle: "italic" }}>
+              <div
+                className="d-flex justify-content-spacearound "
+                style={{ fontStyle: "italic" }}
+              >
                 {getGenre}
               </div>
 
@@ -72,7 +81,11 @@ function Details() {
               <div style={{ paddingBottom: "15px" }}></div>
             </div>
             <div>
-              <img src={`https://image.tmdb.org/t/p/original${detailMovie.poster_path}`} alt="moviePoster" className="moviePoster " />
+              <img
+                src={`https://image.tmdb.org/t/p/original${detailMovie.poster_path}`}
+                alt="moviePoster"
+                className="moviePoster "
+              />
             </div>
           </div>
         </figcaption>

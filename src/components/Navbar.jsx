@@ -15,12 +15,13 @@ function NavScroll() {
 
   return (
     <Navbar
+      fixed="top"
       style={{
-        position: "absolute",
+        // position: "absolute",
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: "transparent",
+        backgroundColor: "#222222",
         zIndex: 1000,
       }}
       expand="lg"

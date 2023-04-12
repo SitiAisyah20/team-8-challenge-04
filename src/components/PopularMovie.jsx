@@ -19,20 +19,25 @@ function PopularMovie() {
   return (
     <>
       <div className="bg">
-        <Container className="my-5">
+        <Container className="mt-4">
           <Row>
             <Col sm={10}>
               <h3 className="text-danger text-popular">
                 <b>Popular Movies</b>
               </h3>
             </Col>
-            <Col sm={2} className="text-right">
-              <p className="text-danger all-movie">
+            <Col sm={2} className="all-movie">
+              <Button
+                variant="dark"
+                className="text-danger all-movie"
+                as={Link}
+                to={`/all-movies`}
+              >
                 See All Movie <i className="fas fa-arrow-right" />
-              </p>
+              </Button>
             </Col>
           </Row>
-          <Row className="my-4">
+          <Row className="mt-4">
             {popularMovies.map((movie) => (
               <Col sm={12} md={6} lg={3} key={movie.id}>
                 <div
@@ -48,9 +53,12 @@ function PopularMovie() {
                       borderRadius: "10px",
                     }}
                   />
-                  <div className="card-content" style={{ height: "100px" }}>
-                    <h4 className="card-title text-center text-white">
-                      {movie.title}
+                  <div
+                    className="card-content"
+                    style={{ height: "100px", color: "#DADADA" }}
+                  >
+                    <h4 className="card-title text-center text-white my-3">
+                      <b>{movie.title}</b>
                     </h4>
                     {/* <p className="card-text">{movie.release_date}</p>
                   <p className="card-text">{movie.overview}</p> */}

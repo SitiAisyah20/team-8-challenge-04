@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Search from "./pages/Search";
 import Footer from "./components/Footer";
+import AllMovies from "./components/AllMovies";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/details/:id" element={<Details />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/all-movies" element={<AllMovies />} />
       </Routes>
       <Footer />
     </BrowserRouter>
