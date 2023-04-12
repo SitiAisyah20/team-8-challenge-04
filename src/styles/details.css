@@ -1,10 +1,4 @@
 .detailsPage {
-  background-color: #222222;
-}
-
-figcaption {
-  position: absolute;
-  bottom: 5rem;
 }
 
 .banner {
@@ -21,7 +15,6 @@ figcaption {
   color: white;
   font-size: 20px;
   text-align: left;
-  height: fit-content;
   background-color: #222222;
   border-radius: 10px;
   opacity: 0.85;
@@ -34,12 +27,55 @@ figcaption {
   margin-bottom: 2px;
 }
 
+.movieRate {
+  font-size: 20px;
+}
+
 .movieDescription {
   padding-bottom: 1px;
 }
 
 .moviePoster {
-  width: 400px;
+  width: 350px;
   border-radius: 10px;
   box-shadow: 10px 10px black;
+  margin-top: 200px;
+}
+
+@media (max-width: 1000px) {
+  .detailsPage {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .details {
+    width: 100%;
+    margin-top: 300px;
+  }
+
+  .movieRelease {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .movieTitle {
+    font-size: 18px;
+    margin-bottom: 13px;
+  }
+
+  .movieDescription {
+    font-size: 14px;
+  }
+
+  .movieGenre {
+    font-size: 5px;
+  }
+
+  .movieRate {
+    font-size: 17px;
+  }
+
+  .moviePoster {
+    display: none;
+  }
 }

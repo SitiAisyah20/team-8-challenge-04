@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/App.css";
 
@@ -16,24 +16,24 @@ function PopularMovie() {
 
   return (
     <>
-      <div className="bg">
-        <Container className="my-5">
-          <Row>
-            <Col sm={10}>
-              <h3 className="text-danger text-popular">
-                <b>Popular Movies</b>
-              </h3>
-            </Col>
-            <Col sm={2} className="text-right">
-              <p className="text-danger all-movie">
-                See All Movie <i className="fas fa-arrow-right" />
-              </p>
-            </Col>
-          </Row>
-          <Row className="my-4">
-            {popularMovies.map((movie) => (
-              <Col sm={12} md={6} lg={3} key={movie.id}>
-                <div className="card" style={{ marginBottom: "50px", borderRadius: "10px" }}>
+      <Container className="mt-4">
+        <Row>
+          <Col sm={10}>
+            <h3 className="text-danger text-popular">
+              <b>Popular Movies</b>
+            </h3>
+          </Col>
+          <Col sm={2} className="text-right">
+            <p className="text-danger all-movie mt-2">
+              See All Movie <i className="fas fa-arrow-right" />
+            </p>
+          </Col>
+        </Row>
+        <Row className="mt-4">
+          {popularMovies.map((movie) => (
+            <Col sm={12} md={6} lg={3} key={movie.id}>
+              <Link to={`/details/${movie.id}`} style={{ textDecoration: "none" }}>
+                <Card className="card" style={{ marginBottom: "50px", borderRadius: "10px" }}>
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                     alt={`${movie.title} poster`}
@@ -43,20 +43,21 @@ function PopularMovie() {
                       borderRadius: "10px",
                     }}
                   />
-                  <div className="card-content" style={{ height: "100px" }}>
-                    <h4 className="card-title text-center text-white">{movie.title}</h4>
+
+                  <Card.Body className="card-content" style={{ height: "90px" }}>
+                    <Card.Title className="card-title text-center text-white">{movie.title}</Card.Title>
                     {/* <p className="card-text">{movie.release_date}</p>
                   <p className="card-text">{movie.overview}</p> */}
-                    <Button variant="danger" className="ms-2" style={{ borderRadius: "20px", width: "120px" }} as={Link} to={`/details/${movie.id}`}>
-                      See Details
-                    </Button>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </div>
+                    {/* <Button variant="danger" className="ms-2" style={{ borderRadius: "20px", width: "120px" }}>
+                    See Details
+                  </Button> */}
+                  </Card.Body>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </>
   );
 }

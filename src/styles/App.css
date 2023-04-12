@@ -17,3 +17,18 @@
 .all-movie {
   font-size: 18px;
 }
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  border: 2px solid;
+  outline-style: solid;
+  outline-color: #d9534f;
+}
+
+.card-title {
+  font-size: 25px;
+}
