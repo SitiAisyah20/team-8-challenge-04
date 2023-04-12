@@ -42,7 +42,7 @@ function Details() {
   //   }, [params]);
 
   const myStyle = {
-    backgroundImage: `url(${`https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`})`,
+    backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${detailMovie.backdrop_path}`})`,
     height: "100vh",
     marginTop: "-70px",
     fontSize: "50px",
