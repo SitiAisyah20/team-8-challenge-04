@@ -1,3 +1,7 @@
+footer {
+  margin-top: auto;
+}
+
 .site-footer {
   background-color: #222222;
   padding: 45px 0 20px;
@@ -129,14 +133,7 @@
 }
 .social-icons a.instagram:hover {
   background: #d6249f;
-  background: radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
 @media (max-width: 767px) {
   .social-icons li.title {
