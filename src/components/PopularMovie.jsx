@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/App.css";
 
@@ -24,15 +24,15 @@ function PopularMovie() {
             </h3>
           </Col>
           <Col sm={2} className="text-right">
-            <p className="text-danger all-movie mt-2">
+            <Button variant="dark" className="text-danger all-movie" as={Link} to={`/all-movies`}>
               See All Movie <i className="fas fa-arrow-right" />
-            </p>
+            </Button>
           </Col>
         </Row>
         <Row className="mt-4">
           {popularMovies.map((movie) => (
             <Col sm={12} md={6} lg={3} key={movie.id}>
-              <Link to={`/details/${movie.id}`} style={{ textDecoration: "none" }}>
+              <Link to={`/details/${movie.id}`} style={{ textDecoration: "none", borderColor: "#d9534f" }}>
                 <Card className="card" style={{ marginBottom: "50px", borderRadius: "10px" }}>
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -45,7 +45,9 @@ function PopularMovie() {
                   />
 
                   <Card.Body className="card-content" style={{ height: "90px" }}>
-                    <Card.Title className="card-title text-center text-white">{movie.title}</Card.Title>
+                    <Card.Title className="card-title text-center text-white ">
+                      <b>{movie.title}</b>
+                    </Card.Title>
                     {/* <p className="card-text">{movie.release_date}</p>
                   <p className="card-text">{movie.overview}</p> */}
                     {/* <Button variant="danger" className="ms-2" style={{ borderRadius: "20px", width: "120px" }}>
