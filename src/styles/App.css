@@ -1,0 +1,19 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.bg {
+  background-color: #222222;
+}
+
+.card {
+  background-color: #414040;
+}
+
+.text-popular {
+  font-size: 35px;
+}
+
+.all-movie {
+  font-size: 18px;
+}

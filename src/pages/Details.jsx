@@ -6,15 +6,21 @@ import "../styles/details.css";
 
 function Details() {
   const [detailMovie, setDetailMovie] = React.useState({});
-  const [trailer, setTrailer] = React.useState([]);
+  const [genre, setGenre] = React.useState([]);
+  //   const [trailer, setTrailer] = React.useState([]);
+
   const params = useParams();
+
+  const getGenre = genre.genres?.map((gen) => {
+    return <h5 className="genre mx-2">{gen.name}</h5>;
+  });
 
   React.useEffect(() => {
     async function getDetailMovie() {
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`);
         setDetailMovie(response.data);
-        console.log(response.data);
+        setGenre(response.data);
       } catch (error) {
         alert(error);
       }
@@ -22,18 +28,18 @@ function Details() {
     getDetailMovie();
   }, [params]);
 
-  React.useEffect(() => {
-    async function getTrailer() {
-      try {
-        const trailer = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=dca3f16902da77f476fae29bef18cfb2&language=en-US`);
-        setTrailer(trailer.data);
-        // console.log(trailer);
-      } catch (error) {
-        alert(error);
-      }
-    }
-    getTrailer();
-  }, [params]);
+  //   React.useEffect(() => {
+  //     async function getTrailer() {
+  //       try {
+  //         const trailer = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=dca3f16902da77f476fae29bef18cfb2&language=en-US`);
+  //         setTrailer(trailer.data);
+  //         // console.log(trailer);
+  //       } catch (error) {
+  //         alert(error);
+  //       }
+  //     }
+  //     getTrailer();
+  //   }, [params]);
 
   return (
     <>
@@ -52,6 +58,10 @@ function Details() {
               <div style={{ marginBottom: "30px" }}></div>
               <hr style={{ opacity: "0.1" }}></hr>
               <div style={{ marginBottom: "15px" }}></div>
+
+              <div className="d-flex justify-content-spacearound " style={{ fontStyle: "italic" }}>
+                {getGenre}
+              </div>
 
               <div className="movieRate">
                 <h4>{"Rating: " + detailMovie.vote_average}</h4>
