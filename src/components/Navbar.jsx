@@ -9,7 +9,7 @@ function NavScroll() {
   const onSearch = (e) => {
     e.preventDefault();
     const query = e.target.elements.search.value;
-    // console.log(e.target.elements.search.value);
+    // console.log(e.target.elements.search);
     navigate("/search", { state: { query } });
   };
 

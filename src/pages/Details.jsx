@@ -42,19 +42,26 @@ function Details() {
   //     }
   //     getTrailer();
   //   }, [params]);
-
+  const myStyle = {
+    backgroundImage: `url(${`https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`})`,
+    height: "100vh",
+    marginTop: "-70px",
+    fontSize: "50px",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  };
   return (
     <>
       <Navbar />
 
-      <div className="detailsPage">
-        <figure className="position-relative">
+      <div className="detailsPage" style={myStyle}>
+        {/* <figure className="position-relative">
           <img
             src={`https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`}
             alt=""
             className="img-fluid"
           />
-        </figure>
+        </figure> */}
         <figcaption>
           <div className="banner">
             <div className="details">

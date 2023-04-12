@@ -6,6 +6,7 @@ import axios from "axios";
 function SearchThree() {
   const location = useLocation();
   const { query } = location.state;
+  console.log(location.state);
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState({});
 
