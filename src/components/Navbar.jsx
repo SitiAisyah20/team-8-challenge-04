@@ -34,11 +34,7 @@ function NavScroll() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
           </Col>
-          <Col
-            xs={12}
-            md={4}
-            className="d-flex align-items-center justify-content-center"
-          >
+          <Col xs={12} md={4} className="d-flex align-items-center justify-content-center">
             <Navbar.Collapse id="navbarScroll">
               <Form className="d-flex" onSubmit={onSearch}>
                 <InputGroup>
@@ -61,23 +57,12 @@ function NavScroll() {
               </Form>
             </Navbar.Collapse>
           </Col>
-          <Col
-            xs={12}
-            md={4}
-            className="d-flex align-items-center justify-content-end"
-          >
+          <Col xs={12} md={4} className="d-flex align-items-center justify-content-end">
             <Navbar.Collapse id="navbarScroll" className="justify-content-end">
-              <Button
-                variant="outline-danger"
-                style={{ borderRadius: "20px", width: "100px" }}
-              >
+              <Button variant="outline-danger" style={{ borderRadius: "20px", width: "100px" }} as={Link} to={"/login"}>
                 Login
               </Button>
-              <Button
-                variant="danger"
-                className="ms-2"
-                style={{ borderRadius: "20px", width: "100px" }}
-              >
+              <Button variant="danger" className="ms-2" style={{ borderRadius: "20px", width: "100px" }} as={Link} to={"/register"}>
                 Register
               </Button>
             </Navbar.Collapse>

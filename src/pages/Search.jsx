@@ -64,7 +64,7 @@ function SearchThree() {
             ))
           ) : (
             <h3 className="text-white mt-5">
-              <b>No result found</b>
+              <b>Oops.. No result found</b>
             </h3>
           )}
         </Row>
