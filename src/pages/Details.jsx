@@ -7,7 +7,7 @@ import "../styles/details.css";
 function Details() {
   const [detailMovie, setDetailMovie] = React.useState({});
   const [genre, setGenre] = React.useState([]);
-  //   const [trailer, setTrailer] = React.useState([]);
+  const [backdropPath, setbackdropPath] = React.useState("");
 
   const params = useParams();
 
@@ -18,9 +18,14 @@ function Details() {
   React.useEffect(() => {
     async function getDetailMovie() {
       try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`);
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`
+        );
         setDetailMovie(response.data);
         setGenre(response.data);
+        setbackdropPath(
+          `https://image.tmdb.org/t/p/original/${response.data.backdrop_path}`
+        );
       } catch (error) {
         alert(error);
       }
@@ -28,21 +33,8 @@ function Details() {
     getDetailMovie();
   }, [params]);
 
-  //   React.useEffect(() => {
-  //     async function getTrailer() {
-  //       try {
-  //         const trailer = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=dca3f16902da77f476fae29bef18cfb2&language=en-US`);
-  //         setTrailer(trailer.data);
-  //         // console.log(trailer);
-  //       } catch (error) {
-  //         alert(error);
-  //       }
-  //     }
-  //     getTrailer();
-  //   }, [params]);
-
   const myStyle = {
-    backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${detailMovie.backdrop_path}`})`,
+    backgroundImage: `url(${backdropPath})`,
     height: "100vh",
     marginTop: "-70px",
     fontSize: "50px",
@@ -64,12 +56,17 @@ function Details() {
             <hr style={{ opacity: "0.1" }}></hr>
             <div style={{ marginBottom: "15px" }}></div>
 
-            <div className="d-flex justify-content-spacearound movieGenre" style={{ fontStyle: "italic" }}>
+            <div
+              className="d-flex justify-content-spacearound movieGenre"
+              style={{ fontStyle: "italic" }}
+            >
               {getGenre}
             </div>
 
             <div>
-              <h4 className="movieRate">{"Rating: " + detailMovie?.vote_average?.toFixed(1)}</h4>
+              <h4 className="movieRate">
+                {"Rating: " + detailMovie?.vote_average?.toFixed(1)}
+              </h4>
             </div>
             <div className="movieRelease">
               <h6>{"Release: " + detailMovie.release_date}</h6>
@@ -78,7 +75,11 @@ function Details() {
           </div>
 
           <div>
-            <img src={`https://image.tmdb.org/t/p/original${detailMovie.poster_path}`} alt="moviePoster" className="moviePoster " />
+            <img
+              src={`https://image.tmdb.org/t/p/original${detailMovie.poster_path}`}
+              alt="moviePoster"
+              className="moviePoster "
+            />
           </div>
 
           {/* <div className="trailer">
