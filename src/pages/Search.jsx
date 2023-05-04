@@ -11,7 +11,9 @@ function SearchThree() {
 
   useEffect(() => {
     axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=dca3f16902da77f476fae29bef18cfb2&query=${query}&include_adult=false`)
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=dca3f16902da77f476fae29bef18cfb2&query=${query}&include_adult=false`
+      )
       .then((response) => setMovies(response.data.results))
       .catch((error) => console.log(error));
     setSearch(query);
@@ -36,8 +38,14 @@ function SearchThree() {
           {movies.length > 0 ? (
             movies.map((movie) => (
               <Col sm={12} md={6} lg={3} key={movie.id}>
-                <Link to={`/details/${movie.id}`} style={{ textDecoration: "none" }}>
-                  <Card className="card" style={{ marginBottom: "50px", borderRadius: "10px" }}>
+                <Link
+                  to={`/details/${movie.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    className="card"
+                    style={{ marginBottom: "50px", borderRadius: "10px" }}
+                  >
                     <img
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       alt={`${movie.title} poster`}
@@ -48,7 +56,10 @@ function SearchThree() {
                       }}
                     />
 
-                    <Card.Body className="card-content" style={{ height: "90px" }}>
+                    <Card.Body
+                      className="card-content"
+                      style={{ height: "90px" }}
+                    >
                       <Card.Title className="card-title text-center text-white">
                         <b>{movie.title}</b>
                       </Card.Title>

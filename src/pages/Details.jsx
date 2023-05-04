@@ -18,10 +18,14 @@ function Details() {
   React.useEffect(() => {
     async function getDetailMovie() {
       try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`);
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/movie/${params.id}?api_key=dca3f16902da77f476fae29bef18cfb2`
+        );
         setDetailMovie(response.data);
         setGenre(response.data);
-        setbackdropPath(`https://image.tmdb.org/t/p/original/${response.data.backdrop_path}`);
+        setbackdropPath(
+          `https://image.tmdb.org/t/p/original/${response.data.backdrop_path}`
+        );
       } catch (error) {
         alert(error);
       }
@@ -52,12 +56,17 @@ function Details() {
             <hr style={{ opacity: "0.1" }}></hr>
             <div style={{ marginBottom: "15px" }}></div>
 
-            <div className="d-flex justify-content-spacearound movieGenre" style={{ fontStyle: "italic" }}>
+            <div
+              className="d-flex justify-content-spacearound movieGenre"
+              style={{ fontStyle: "italic" }}
+            >
               {getGenre}
             </div>
 
             <div>
-              <h4 className="movieRate">{"Rating: " + detailMovie?.vote_average?.toFixed(1)}</h4>
+              <h4 className="movieRate">
+                {"Rating: " + detailMovie?.vote_average?.toFixed(1)}
+              </h4>
             </div>
             <div className="movieRelease">
               <h6>{"Release: " + detailMovie.release_date}</h6>
@@ -66,8 +75,16 @@ function Details() {
           </div>
 
           <div>
-            <img src={`https://image.tmdb.org/t/p/original${detailMovie.poster_path}`} alt="moviePoster" className="moviePoster " />
+            <img
+              src={`https://image.tmdb.org/t/p/original${detailMovie.poster_path}`}
+              alt="moviePoster"
+              className="moviePoster "
+            />
           </div>
+
+          {/* <div className="trailer">
+          <video src={`https://www.youtube.com/watch?v=${trailer.key}`} width={750} height={500} controls></video>
+        </div> */}
         </div>
       </div>
     </>
