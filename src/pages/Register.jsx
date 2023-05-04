@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/register.css";
-import { Navbar, Container, FloatingLabel } from "react-bootstrap";
+import { Navbar, Container, FloatingLabel, Form, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -60,32 +60,25 @@ function Register() {
         </Container>
 
         <div className="signup-form">
-          <form onSubmit={onSubmit}>
+          <Form onSubmit={onSubmit}>
             <h1 className="text-white">Sign Up</h1>
-            <div className="float-label">
-              <input type="text" placeholder="" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
-              <label htmlFor="name">Name </label>
-            </div>
-            <div className="float-label">
-              <input type="email" placeholder="" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-              <label htmlFor="email">Email</label>
-            </div>
-            <div className="float-label">
-              <input type="password" placeholder="" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              <label htmlFor="password">Password</label>
-            </div>
-            {/* <div className="float-label">
-              <input type="password" placeholder="" id="conpass" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              <label htmlFor="conpass">Confirm Password</label>
-            </div> */}
-
+            <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
+              <Form.Control type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            </FloatingLabel>
+            <FloatingLabel controlId="floatingInput" label="Email" className="mb-3">
+              <Form.Control type="email" placeholder="name@email.com" value={email} onChange={(e) => setEmail(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            </FloatingLabel>
+            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3">
+              <Form.Control type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            </FloatingLabel>
             <button type="submit">Sign Up</button>
-            <div className="text-or mt-2">
-              <h6 className=" text-muted ">
-                <span>or</span>
-              </h6>
-            </div>
-          </form>
+          </Form>
+          <div className="text-or mt-2">
+            <h6 className=" text-muted ">
+              <span>or</span>
+            </h6>
+          </div>
+
           <GoogleLogin buttonText="Sign Up With Google" />
           <h6 className="text-white mt-4">
             Already have an account?{" "}

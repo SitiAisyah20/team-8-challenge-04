@@ -14,6 +14,7 @@
   max-width: 500px;
   padding: 40px 80px;
   border-radius: 10px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   background-color: #1b1a1a;
@@ -26,11 +27,7 @@
   flex-direction: column;
 }
 
-.float-label {
-  position: relative;
-}
-
-label {
+/* label {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -40,7 +37,7 @@ label {
   align-items: center;
   cursor: text;
   transition: 0.2s ease-in-out;
-}
+} */
 
 .signup-form > form > h1 {
   text-align: left;
@@ -48,7 +45,7 @@ label {
   font-weight: 600;
 }
 
-input {
+/* input {
   outline-width: 0;
   width: 100%;
   height: 50px;
@@ -57,15 +54,15 @@ input {
   border: none;
   padding: 5px 15px;
   background-color: #dfdfdf;
-}
+} */
 
-input:focus + label,
+/* input:focus + label,
 input:valid + label {
   color: #dfdfdf;
   font-size: 0.95em;
   top: -20px;
   font-weight: bold;
-}
+} */
 
 .signup-form > form > button {
   padding: 10px 20px;
