@@ -16,7 +16,7 @@ function GoogleLogin({ buttonText }) {
       let config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: `${process.env.REACT_APP_API}/v1/auth/google`,
+        url: `${process.env.REACT_APP_API_URL}/v1/auth/google`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -42,7 +42,8 @@ function GoogleLogin({ buttonText }) {
   };
 
   const loginWithGoogle = useGoogleLogin({
-    onSuccess: (responseGoogle) => registerLoginWithGoogleAction(responseGoogle.access_token),
+    onSuccess: (responseGoogle) =>
+      registerLoginWithGoogleAction(responseGoogle.access_token),
   });
   return (
     <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>

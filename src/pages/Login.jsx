@@ -95,7 +95,7 @@ function Login() {
                 </Col>
               </Row>
             </Form>
-            <GoogleLogin buttonText="Sign In with Google 🚀" />
+            <GoogleLogin buttonText="Sign In with Google" />
 
             <h6 className="text-white mt-4">
               Don't have an account?{" "}

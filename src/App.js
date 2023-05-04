@@ -21,10 +21,9 @@ function App() {
           clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
         >
           <BrowserRouter>
-            {/* <NoNavbar>
+            <NoNavbar>
               <Navbar />
-            </NoNavbar> */}
-            <Navbar />
+            </NoNavbar>
 
             <Routes>
               <Route path="/" element={<Home />} />
