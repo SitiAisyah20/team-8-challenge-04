@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import NoNavbar from "./components/NoNavbar";
 import { ToastContainer } from "react-toastify";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import NoTokenAccess from "./components/NoTokenAccess";
 
 function App() {
   return (
@@ -34,17 +33,13 @@ function App() {
               <Route
                 path="/register"
                 element={
-                  <NoTokenAccess>
                     <Register />
-                  </NoTokenAccess>
                 }
               />
               <Route
                 path="/login"
                 element={
-                  <NoTokenAccess>
                     <Login />
-                  </NoTokenAccess>
                 }
               />
             </Routes>
