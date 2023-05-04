@@ -1,0 +1,132 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+/* .bg-register {
+  left: 0;
+  right: 0;
+}
+
+.formCard {
+  max-width: 800px;
+  padding: 65px 80px;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #222222;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
+  opacity: 0.95;
+}
+
+.inputPass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputPass span {
+  cursor: pointer;
+}
+
+.formCard > Form {
+  display: grid;
+  flex-direction: column;
+} */
+
+.register {
+  background-image: url("../assets/photo-1489599849927-2ee91cede3ba.jpg");
+  height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.signup-form {
+  max-width: 500px;
+  padding: 65px 80px;
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #1b1a1a;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
+  opacity: 0.95;
+}
+
+.signup-form > form > h1 {
+  text-align: left;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.signup-form > form {
+  display: grid;
+  flex-direction: column;
+}
+
+.signup-form > form > input {
+  outline-width: 0;
+  height: 50px;
+  margin-bottom: 14px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.signup-form > form > button {
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #e50914;
+  margin-bottom: 13px;
+  margin-top: 14px;
+}
+
+.google-btn {
+  padding: 10px 20px;
+  width: 100%;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.text-or h6 {
+  text-align: center;
+  position: relative;
+}
+
+.text-or h6::before {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 2px;
+  background: #495057;
+  position: absolute;
+  left: 0;
+  top: 40%;
+  z-index: -5;
+}
+
+.text-or h6::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 2px;
+  background: #495057;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  z-index: -5;
+}
+
+.sign-link:hover {
+  text-decoration: underline;
+}
