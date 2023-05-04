@@ -54,27 +54,12 @@ function Login() {
           <Col className="signin-form">
             <Form onSubmit={onSubmit}>
               <h1 className="text-white">Sign In</h1>
-              <FloatingLabel
-                controlId="floatingEmail"
-                label="Email"
-                className="floating-label mb-3"
-              >
-                <Form.Control
-                  type="email"
-                  placeholder="name@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
+              <FloatingLabel controlId="floatingEmail" label="Email" className="floating-label mb-3">
+                <Form.Control type="email" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
               </FloatingLabel>
 
-              <FloatingLabel
-                controlId="floatingPassword"
-                label="Password"
-                className="floating-label mb-3"
-              >
+              <FloatingLabel controlId="floatingPassword" label="Password" className="floating-label mb-3">
                 <Form.Control
                   type="password"
                   placeholder="Password"
@@ -100,10 +85,7 @@ function Login() {
             <h6 className="text-white mt-4">
               Don't have an account?{" "}
               <span className="sign-link">
-                <Link
-                  to={"/register"}
-                  style={{ color: "white", textDecoration: "none" }}
-                >
+                <Link to={"/register"} style={{ color: "white", textDecoration: "none" }}>
                   <b>Sign up here</b>
                 </Link>
               </span>

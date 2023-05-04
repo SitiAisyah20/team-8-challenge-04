@@ -17,9 +17,7 @@ function App() {
   return (
     <>
       <div className="app">
-        <GoogleOAuthProvider
-          clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
-        >
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}>
           <BrowserRouter>
             <NoNavbar>
               <Navbar />
