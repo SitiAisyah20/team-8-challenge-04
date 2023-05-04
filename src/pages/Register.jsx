@@ -10,7 +10,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passowordShown, setPasswordShown] = useState(false);
+  // const [passowordShown, setPasswordShown] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,9 +46,9 @@ function Register() {
     }
   };
 
-  const togglePassword = () => {
-    setPasswordShown(!passowordShown);
-  };
+  // const togglePassword = () => {
+  //   setPasswordShown(!passowordShown);
+  // };
 
   return (
     <>
