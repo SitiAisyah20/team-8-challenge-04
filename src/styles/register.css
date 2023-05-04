@@ -2,38 +2,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* .bg-register {
-  left: 0;
-  right: 0;
-}
-
-.formCard {
-  max-width: 800px;
-  padding: 65px 80px;
-  border-radius: 10px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #222222;
-  box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
-  opacity: 0.95;
-}
-
-.inputPass {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.inputPass span {
-  cursor: pointer;
-}
-
-.formCard > Form {
-  display: grid;
-  flex-direction: column;
-} */
-
 .register {
   background-image: url("../assets/photo-1489599849927-2ee91cede3ba.jpg");
   height: 100vh;
@@ -44,9 +12,8 @@
 
 .signup-form {
   max-width: 500px;
-  padding: 65px 80px;
+  padding: 40px 80px;
   border-radius: 10px;
-  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   background-color: #1b1a1a;
@@ -54,24 +21,50 @@
   opacity: 0.95;
 }
 
-.signup-form > form > h1 {
-  text-align: left;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
 .signup-form > form {
   display: grid;
   flex-direction: column;
 }
 
-.signup-form > form > input {
+.float-label {
+  position: relative;
+}
+
+label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: black;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  cursor: text;
+  transition: 0.2s ease-in-out;
+}
+
+.signup-form > form > h1 {
+  text-align: left;
+  margin-bottom: 35px;
+  font-weight: 600;
+}
+
+input {
   outline-width: 0;
+  width: 100%;
   height: 50px;
-  margin-bottom: 14px;
+  margin-bottom: 25px;
   border-radius: 5px;
   border: none;
   padding: 5px 15px;
+  background-color: #dfdfdf;
+}
+
+input:focus + label,
+input:valid + label {
+  color: #dfdfdf;
+  font-size: 0.95em;
+  top: -20px;
+  font-weight: bold;
 }
 
 .signup-form > form > button {
@@ -96,6 +89,10 @@
   font-size: 1rem;
   border-radius: 5px;
   background-color: white;
+}
+
+.google-btn:hover {
+  background-color: #dfdfdf;
 }
 
 .text-or h6 {

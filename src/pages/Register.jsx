@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/register.css";
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar, Container, FloatingLabel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -62,9 +62,23 @@ function Register() {
         <div className="signup-form">
           <form onSubmit={onSubmit}>
             <h1 className="text-white">Sign Up</h1>
-            <input type="text" placeholder=" Name" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="email" placeholder=" Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div className="float-label">
+              <input type="text" placeholder="" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+              <label htmlFor="name">Name </label>
+            </div>
+            <div className="float-label">
+              <input type="email" placeholder="" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <label htmlFor="email">Email</label>
+            </div>
+            <div className="float-label">
+              <input type="password" placeholder="" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <label htmlFor="password">Password</label>
+            </div>
+            {/* <div className="float-label">
+              <input type="password" placeholder="" id="conpass" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <label htmlFor="conpass">Confirm Password</label>
+            </div> */}
+
             <button type="submit">Sign Up</button>
             <div className="text-or mt-2">
               <h6 className=" text-muted ">
@@ -82,47 +96,6 @@ function Register() {
             </span>
           </h6>
         </div>
-
-        {/* <div className="formCard">
-          <h2 className="text-white text-center mb-5">Sign Up</h2>
-          <Form onSubmit={onSubmit}>
-            <FloatingLabel label="Enter Name" controlId="floatingInput" className="mb-3">
-              <Form.Control type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
-            </FloatingLabel>
-            <FloatingLabel label="Enter Email" className="mb-3">
-              <Form.Control type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </FloatingLabel>
-            <FloatingLabel label="Enter Password" className="inputPass">
-              <Form.Control type={passowordShown ? "text" : "password"} placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-              <span className="text-white" onClick={togglePassword}>
-                show
-              </span>
-            </FloatingLabel>
-            <h6 className="text-warning mt-1">
-              <b>Password must be contain Uppercase and Number</b>
-            </h6>
-            <Row className="mt-3">
-              <Col>
-                <Button variant="outline-danger " className="ms-2" style={{ borderRadius: "20px", width: "200px" }} type="submit">
-                  Sign Up
-                </Button>
-              </Col>
-              <Col>
-                <GoogleLogin buttonText="Sign up With Google" />
-              </Col>
-            </Row>
-          </Form>
-          <Row>
-            <Col>
-              <h5 className="text-white text-center mt-5">
-                Already have an account?{" "}
-                <Link to={"/login"} style={{ color: "white" }}>
-                  Sign in Here
-                </Link>
-              </h5>
-            </Col>
-          </Row>
-        </div> */}
       </div>
     </>
   );
