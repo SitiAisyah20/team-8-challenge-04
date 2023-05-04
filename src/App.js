@@ -12,12 +12,15 @@ import Login from "./pages/Login";
 import NoNavbar from "./components/NoNavbar";
 import { ToastContainer } from "react-toastify";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import NoTokenAccess from "./components/NoTokenAccess";
 
 function App() {
   return (
     <>
       <div className="app">
-        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}>
+        <GoogleOAuthProvider
+          clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
+        >
           <BrowserRouter>
             <NoNavbar>
               <Navbar />
@@ -28,8 +31,22 @@ function App() {
               <Route path="/details/:id" element={<Details />} />
               <Route path="/search" element={<Search />} />
               <Route path="/all-movies" element={<AllMovies />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
+              <Route
+                path="/register"
+                element={
+                  <NoTokenAccess>
+                    <Register />
+                  </NoTokenAccess>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <NoTokenAccess>
+                    <Login />
+                  </NoTokenAccess>
+                }
+              />
             </Routes>
             <Footer />
 
