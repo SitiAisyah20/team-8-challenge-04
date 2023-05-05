@@ -27,7 +27,7 @@ function Register() {
 
       let config = {
         method: "post",
-        url: `https://km4-challenge-5-api.up.railway.app/api/v1/auth/register`,
+        url: `${process.env.REACT_APP_API_URL}/v1/auth/register`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -61,14 +61,45 @@ function Register() {
         <div className="signup-form">
           <Form onSubmit={onSubmit}>
             <h1 className="text-white">Sign Up</h1>
-            <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
-              <Form.Control type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Name"
+              className="mb-3"
+            >
+              <Form.Control
+                type="text"
+                placeholder="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingInput" label="Email" className="mb-3">
-              <Form.Control type="email" placeholder="name@email.com" value={email} onChange={(e) => setEmail(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Email"
+              className="mb-3"
+            >
+              <Form.Control
+                type="email"
+                placeholder="name@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-1">
-              <Form.Control type={visiblePassword ? "text" : "password"} placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+
+            <FloatingLabel
+              controlId="floatingPassword"
+              label="Password"
+              className="mb-3"
+            >
+              <Form.Control
+                type={visiblePassword ? "text" : "password"}
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
               <span
                 className=" position-absolute  translate-middle-y"
                 style={{
@@ -79,13 +110,21 @@ function Register() {
                   right: "10px",
                   top: "37px",
                 }}
-                onClick={() => setVisiblePassword((visiblePassword) => !visiblePassword)}
+                onClick={() =>
+                  setVisiblePassword((visiblePassword) => !visiblePassword)
+                }
               >
                 {visiblePassword ? <FaEye /> : <FaEyeSlash />}
               </span>
             </FloatingLabel>
             <FloatingLabel label="Confirm Password" className="mb-1">
-              <Form.Control type={visibleConfirmPassword ? "text" : "password"} placeholder="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+              <Form.Control
+                type={visibleConfirmPassword ? "text" : "password"}
+                placeholder="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
               <span
                 className=" position-absolute  translate-middle-y"
                 style={{
@@ -96,12 +135,18 @@ function Register() {
                   right: "10px",
                   top: "37px",
                 }}
-                onClick={() => setVisibleConfirmPassword((visibleConfirmPassword) => !visibleConfirmPassword)}
+                onClick={() =>
+                  setVisibleConfirmPassword(
+                    (visibleConfirmPassword) => !visibleConfirmPassword
+                  )
+                }
               >
                 {visibleConfirmPassword ? <FaEye /> : <FaEyeSlash />}
               </span>
             </FloatingLabel>
-            <p className="text-warning ms-2">{confirmPassword !== password ? "Password didn't match!" : null}</p>
+            <p className="text-warning ms-2">
+              {confirmPassword !== password ? "Password didn't match!" : null}
+            </p>
             <button type="submit">Sign Up</button>
           </Form>
           <div className="text-or mt-2">
@@ -114,7 +159,10 @@ function Register() {
           <h6 className="text-white mt-4">
             Already have an account?{" "}
             <span className="sign-link">
-              <Link to={"/login"} style={{ color: "white", textDecoration: "none" }}>
+              <Link
+                to={"/login"}
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 <b>Sign In here</b>
               </Link>
             </span>
