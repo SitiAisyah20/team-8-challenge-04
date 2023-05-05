@@ -11,6 +11,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [passowordShown, setPasswordShown] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -71,6 +72,11 @@ function Register() {
             <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3">
               <Form.Control type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
             </FloatingLabel>
+            <FloatingLabel label="Confirm Password" className="mb-1">
+              <Form.Control type="password" placeholder="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            </FloatingLabel>
+            <p className="text-warning ms-2">{confirmPassword !== password ? "Password didn't match!" : null}</p>
+
             <button type="submit">Sign Up</button>
           </Form>
           <div className="text-or mt-2">
@@ -84,7 +90,7 @@ function Register() {
             Already have an account?{" "}
             <span className="sign-link">
               <Link to={"/login"} style={{ color: "white", textDecoration: "none" }}>
-                Sign In here
+                <b>Sign In here</b>
               </Link>
             </span>
           </h6>
