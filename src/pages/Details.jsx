@@ -1,13 +1,15 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/details.css";
+import { toast } from "react-toastify";
 
 function Details() {
   const [detailMovie, setDetailMovie] = React.useState({});
   const [genre, setGenre] = React.useState([]);
   const [backdropPath, setbackdropPath] = React.useState("");
+  const [user, setUser] = useState("");
 
   const params = useParams();
 
@@ -41,6 +43,42 @@ function Details() {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
+
+  useEffect(() => {
+    const getMe = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        const response = await axios.get(
+          `${process.env.REACT_APP_API}/v1/auth/me`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const data = response.data.data;
+
+        setUser(data);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          // If not valid token
+          if (error.response.status === 401) {
+            localStorage.removeItem("token");
+            // Temporary solution
+            return (window.location.href = "/");
+          }
+
+          toast.error(error.response.data.message);
+          return;
+        }
+        toast.error(error.message);
+      }
+    };
+
+    getMe();
+  }, []);
 
   return (
     <>
