@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import "../styles/register.css";
-import { Navbar, Container, FloatingLabel, Form, FormControl } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  FloatingLabel,
+  Form,
+  FormControl,
+  Col,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import GoogleLogin from "../components/GoogleLogin";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [passowordShown, setPasswordShown] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [passwordType, setPasswordType] = useState("password");
+  const [visible, setVisible] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -47,7 +57,11 @@ function Register() {
   };
 
   // const togglePassword = () => {
-  //   setPasswordShown(!passowordShown);
+  //   if (passwordType === "password") {
+  //     setPasswordType("text");
+  //     return;
+  //   }
+  //   setPasswordType("password");
   // };
 
   return (
@@ -62,15 +76,74 @@ function Register() {
         <div className="signup-form">
           <Form onSubmit={onSubmit}>
             <h1 className="text-white">Sign Up</h1>
-            <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
-              <Form.Control type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Name"
+              className="mb-3"
+            >
+              <Form.Control
+                type="text"
+                placeholder="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingInput" label="Email" className="mb-3">
-              <Form.Control type="email" placeholder="name@email.com" value={email} onChange={(e) => setEmail(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Email"
+              className="mb-3"
+            >
+              <Form.Control
+                type="email"
+                placeholder="name@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3">
-              <Form.Control type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            <FloatingLabel
+              controlId="floatingPassword"
+              label="Password"
+              name="password"
+              className="mb-3"
+            >
+              <Form.Control
+                type={visible ? "text" : "password"}
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
             </FloatingLabel>
+
+            <FloatingLabel
+              controlId="floatingConfirmPassword"
+              label="Confirm Password"
+              name="confirm-password"
+              className="mb-3"
+            >
+              <Form.Control
+                type={visible ? "text" : "password"}
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
+
+              <span
+                className="btn btn-outline-dark top-50 end-0 translate-middle-y d-flex justify-content-end"
+                style={{
+                  height: "100%",
+                  border: "none",
+                  backgroundColor: "transparent",
+                }}
+                onClick={() => setVisible((visible) => !visible)}
+              >
+                {visible ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </FloatingLabel>
+
             <button type="submit">Sign Up</button>
           </Form>
           <div className="text-or mt-2">
@@ -83,7 +156,10 @@ function Register() {
           <h6 className="text-white mt-4">
             Already have an account?{" "}
             <span className="sign-link">
-              <Link to={"/login"} style={{ color: "white", textDecoration: "none" }}>
+              <Link
+                to={"/login"}
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 Sign In here
               </Link>
             </span>
