@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import NoNavbar from "./components/NoNavbar";
 import { ToastContainer } from "react-toastify";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import NoTokenAccess from "./components/NoTokenAccess";
+import Protected from "./components/Protected";
 
 function App() {
   return (
@@ -27,11 +29,32 @@ function App() {
 
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/details/:id" element={<Details />} />
+              <Route
+                path="/details/:id"
+                element={
+                  <Protected>
+                    <Details />
+                  </Protected>
+                }
+              />
               <Route path="/search" element={<Search />} />
               <Route path="/all-movies" element={<AllMovies />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
+              <Route
+                path="/register"
+                element={
+                  <NoTokenAccess>
+                    <Register />
+                  </NoTokenAccess>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <NoTokenAccess>
+                    <Login />
+                  </NoTokenAccess>
+                }
+              />
             </Routes>
             <Footer />
 

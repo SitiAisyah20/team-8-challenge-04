@@ -42,8 +42,7 @@ function GoogleLogin({ buttonText }) {
   };
 
   const loginWithGoogle = useGoogleLogin({
-    onSuccess: (responseGoogle) =>
-      registerLoginWithGoogleAction(responseGoogle.access_token),
+    onSuccess: (responseGoogle) => registerLoginWithGoogleAction(responseGoogle.access_token),
   });
   return (
     <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
