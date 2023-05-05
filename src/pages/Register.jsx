@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "../styles/register.css";
-import { Navbar, Container, FloatingLabel, Form, FormControl } from "react-bootstrap";
+import { Navbar, Container, FloatingLabel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import GoogleLogin from "../components/GoogleLogin";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [passowordShown, setPasswordShown] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [visiblePassword, setVisiblePassword] = useState(false);
+  const [visibleConfirmPassword, setVisibleConfirmPassword] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,10 +49,6 @@ function Register() {
     }
   };
 
-  // const togglePassword = () => {
-  //   setPasswordShown(!passowordShown);
-  // };
-
   return (
     <>
       <div className="register">
@@ -68,9 +67,41 @@ function Register() {
             <FloatingLabel controlId="floatingInput" label="Email" className="mb-3">
               <Form.Control type="email" placeholder="name@email.com" value={email} onChange={(e) => setEmail(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3">
-              <Form.Control type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-1">
+              <Form.Control type={visiblePassword ? "text" : "password"} placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+              <span
+                className=" position-absolute  translate-middle-y"
+                style={{
+                  height: "100%",
+                  border: "none",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  right: "10px",
+                  top: "37px",
+                }}
+                onClick={() => setVisiblePassword((visiblePassword) => !visiblePassword)}
+              >
+                {visiblePassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
             </FloatingLabel>
+            <FloatingLabel label="Confirm Password" className="mb-1">
+              <Form.Control type={visibleConfirmPassword ? "text" : "password"} placeholder="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} style={{ height: "50px", backgroundColor: "#dfdfdf" }} />
+              <span
+                className=" position-absolute  translate-middle-y"
+                style={{
+                  height: "100%",
+                  border: "none",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  right: "10px",
+                  top: "37px",
+                }}
+                onClick={() => setVisibleConfirmPassword((visibleConfirmPassword) => !visibleConfirmPassword)}
+              >
+                {visibleConfirmPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </FloatingLabel>
+            <p className="text-warning ms-2">{confirmPassword !== password ? "Password didn't match!" : null}</p>
             <button type="submit">Sign Up</button>
           </Form>
           <div className="text-or mt-2">
@@ -84,7 +115,7 @@ function Register() {
             Already have an account?{" "}
             <span className="sign-link">
               <Link to={"/login"} style={{ color: "white", textDecoration: "none" }}>
-                Sign In here
+                <b>Sign In here</b>
               </Link>
             </span>
           </h6>

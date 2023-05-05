@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/login.css";
-import { Form, Button, Container, Row, Col, Navbar } from "react-bootstrap";
+import { Form, Container, Row, Col, Navbar } from "react-bootstrap";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -68,9 +68,7 @@ function Login() {
                   // style={{ color: "#868485", height: "40px" }}
                 />
               </FloatingLabel>
-              <Button variant="danger" type="submit">
-                Sign In
-              </Button>
+              <button type="submit">Sign In</button>
 
               <Row className="text-or mt-2">
                 <Col>
