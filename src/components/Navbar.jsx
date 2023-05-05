@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col, Form, Navbar, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +13,16 @@ function NavScroll() {
     // console.log(e.target.elements.search.value);
     navigate("/search", { state: { query } });
   };
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <Navbar
@@ -66,6 +77,28 @@ function NavScroll() {
             md={4}
             className="d-flex align-items-center justify-content-end"
           >
+            {isLoggedIn ? (
+              <>
+                <Navbar.Collapse
+                  id="navbarScroll"
+                  className="justify-content-end"
+                >
+                  <Button
+                    variant="outline-danger"
+                    style={{ borderRadius: "20px", width: "100px" }}
+                    as={Link}
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      setIsLoggedIn(false);
+                      return navigate("/");
+                    }}
+                  >
+                    Logout
+                  </Button>
+                </Navbar.Collapse>
+              </>
+            ) : (
+              <>
                 <Navbar.Collapse
                   id="navbarScroll"
                   className="justify-content-end"
@@ -88,6 +121,8 @@ function NavScroll() {
                     Register
                   </Button>
                 </Navbar.Collapse>
+              </>
+            )}
           </Col>
         </Row>
       </Container>
