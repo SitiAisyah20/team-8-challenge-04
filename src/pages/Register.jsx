@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import "../styles/register.css";
-import {
-  Navbar,
-  Container,
-  FloatingLabel,
-  Form,
-  FormControl,
-  Col,
-} from "react-bootstrap";
+import { Navbar, Container, FloatingLabel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -19,8 +12,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const [passwordType, setPasswordType] = useState("password");
-  const [visible, setVisible] = useState(false);
+  const [visiblePassword, setVisiblePassword] = useState(false);
+  const [visibleConfirmPassword, setVisibleConfirmPassword] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -55,14 +48,6 @@ function Register() {
       toast.error(error.message);
     }
   };
-
-  // const togglePassword = () => {
-  //   if (passwordType === "password") {
-  //     setPasswordType("text");
-  //     return;
-  //   }
-  //   setPasswordType("password");
-  // };
 
   return (
     <>
@@ -116,34 +101,65 @@ function Register() {
                 style={{ height: "50px", backgroundColor: "#dfdfdf" }}
               />
             </FloatingLabel>
-
             <FloatingLabel
-              controlId="floatingConfirmPassword"
-              label="Confirm Password"
-              name="confirm-password"
-              className="mb-3"
+              controlId="floatingPassword"
+              label="Password"
+              className="mb-1"
             >
               <Form.Control
-                type={visible ? "text" : "password"}
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                type={visiblePassword ? "text" : "password"}
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 style={{ height: "50px", backgroundColor: "#dfdfdf" }}
               />
-
               <span
-                className="btn btn-outline-dark top-50 end-0 translate-middle-y d-flex justify-content-end"
+                className=" position-absolute  translate-middle-y"
                 style={{
                   height: "100%",
                   border: "none",
                   backgroundColor: "transparent",
+                  cursor: "pointer",
+                  right: "10px",
+                  top: "37px",
                 }}
-                onClick={() => setVisible((visible) => !visible)}
+                onClick={() =>
+                  setVisiblePassword((visiblePassword) => !visiblePassword)
+                }
               >
-                {visible ? <FaEye /> : <FaEyeSlash />}
+                {visiblePassword ? <FaEye /> : <FaEyeSlash />}
               </span>
             </FloatingLabel>
-
+            <FloatingLabel label="Confirm Password" className="mb-1">
+              <Form.Control
+                type={visibleConfirmPassword ? "text" : "password"}
+                placeholder="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
+              />
+              <span
+                className=" position-absolute  translate-middle-y"
+                style={{
+                  height: "100%",
+                  border: "none",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  right: "10px",
+                  top: "37px",
+                }}
+                onClick={() =>
+                  setVisibleConfirmPassword(
+                    (visibleConfirmPassword) => !visibleConfirmPassword
+                  )
+                }
+              >
+                {visibleConfirmPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </FloatingLabel>
+            <p className="text-warning ms-2">
+              {confirmPassword !== password ? "Password didn't match!" : null}
+            </p>
             <button type="submit">Sign Up</button>
           </Form>
           <div className="text-or mt-2">
@@ -160,7 +176,7 @@ function Register() {
                 to={"/login"}
                 style={{ color: "white", textDecoration: "none" }}
               >
-                Sign In here
+                <b>Sign In here</b>
               </Link>
             </span>
           </h6>
