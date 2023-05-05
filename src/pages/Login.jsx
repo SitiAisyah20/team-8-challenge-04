@@ -82,14 +82,18 @@ function Login() {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  // style={{ color: "#868485", height: "40px" }}
+                  // style={{ color: "#868485", height: "50px" }}
                 />
                 <span
-                  className="btn btn-outline-dark position-absolute top-50 end-0 translate-middle-y"
+                  className="position-absolute translate-middle-y"
                   style={{
                     height: "100%",
                     border: "none",
+                    color: "#1b1a1a",
                     backgroundColor: "transparent",
+                    cursor: "pointer",
+                    right: "10px",
+                    top: "46px",
                   }}
                   onClick={() => setVisible((visible) => !visible)}
                 >

@@ -27,7 +27,7 @@ function Register() {
 
       let config = {
         method: "post",
-        url: `https://km4-challenge-5-api.up.railway.app/api/v1/auth/register`,
+        url: `${process.env.REACT_APP_API_URL}/v1/auth/register`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -87,24 +87,11 @@ function Register() {
                 style={{ height: "50px", backgroundColor: "#dfdfdf" }}
               />
             </FloatingLabel>
+
             <FloatingLabel
               controlId="floatingPassword"
               label="Password"
-              name="password"
               className="mb-3"
-            >
-              <Form.Control
-                type={visible ? "text" : "password"}
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ height: "50px", backgroundColor: "#dfdfdf" }}
-              />
-            </FloatingLabel>
-            <FloatingLabel
-              controlId="floatingPassword"
-              label="Password"
-              className="mb-1"
             >
               <Form.Control
                 type={visiblePassword ? "text" : "password"}
